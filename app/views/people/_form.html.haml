@@ -1,0 +1,8 @@
+= simple_form_for @person do |f|
+  = f.input :name
+  #competencies
+    = f.simple_fields_for :competencies do |competency|
+      = render 'competency_fields', f: competency
+    .links
+      = link_to_add_association 'add competency', f, :competencies
+  = f.button :submit
